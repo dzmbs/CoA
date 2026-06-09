@@ -109,12 +109,14 @@ function Landing({ onLaunch }) {
       {/* hero */}
       <section className="wrap" style={{ padding: "72px 32px 40px", display: "grid", gridTemplateColumns: "1.15fr .85fr", gap: 40, alignItems: "center" }}>
         <div className="rise">
-          <span className="pill pri" style={{ marginBottom: 22 }}><LiveDot /> Intent-based credit · live on Monad</span>
-          <h1 className="h-xl" style={{ marginBottom: 22 }}>Credit that<br /><span style={{ color: "var(--primary-2)" }}>negotiates itself.</span></h1>
-          <p className="muted" style={{ fontSize: 18, lineHeight: 1.55, maxWidth: 520, marginBottom: 30 }}>
-            State the loan you want and the risk you'll accept. A network of solver agents competes to fill it —
-            peer-to-peer, OTC, or routed to Monad's lending markets — and posts a <b style={{ color: "var(--ink-1)" }}>bond</b> on your terms.
-            It's a coincidence of wants, for borrowing.
+          <span className="pill pri" style={{ marginBottom: 22 }}><LiveDot /> Live on Monad</span>
+          <h1 className="h-xl" style={{ marginBottom: 22 }}>Coincidence<br /><span style={{ color: "var(--primary-2)" }}>of Agents</span></h1>
+          <p className="muted" style={{ fontSize: 20, lineHeight: 1.5, maxWidth: 540, marginBottom: 16 }}>
+            Intent-based credit and yield. <b style={{ color: "var(--ink-1)" }}>Your terms, agentic execution.</b>
+          </p>
+          <p style={{ fontSize: 15.5, lineHeight: 1.6, maxWidth: 520, marginBottom: 30, color: "var(--ink-3)" }}>
+            State the deal you want and the risk you'll accept — a network of solver agents competes to fill it,
+            and is bonded to your mandate.
           </p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
             <button className="btn btn-primary btn-lg" onClick={onLaunch}>Create an intent <Icon.arrow style={{ width: 19, height: 19 }} /></button>
