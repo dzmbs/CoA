@@ -1,0 +1,32 @@
+# dependencies
+node_modules
+
+# secrets / env (never commit)
+.env
+.env.local
+.env.*.local
+
+# builds / artifacts
+dist
+packages/*/dist
+packages/app/.vite
+out
+cache
+broadcast
+
+# foundry
+contracts/lib/
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# third-party reference clone — not part of this project
+cow/
+
+# internal design captures (not needed to build or run)
+design/screenshots/
+design/uploads/
+
+# misc
+*.log
+.DS_Store

@@ -1,0 +1,18 @@
+# Render Blueprint for the CoA orderbook + solver service.
+# Deploy: render.com → New → Blueprint → point at this repo.
+services:
+  - type: web
+    name: coa-server
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install
+    startCommand: pnpm --filter @mfi/server start
+    envVars:
+      - key: CHAIN
+        value: monad
+      - key: PRIVY_APP_ID
+        sync: false
+      - key: PRIVY_APP_SECRET
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
