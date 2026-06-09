@@ -744,7 +744,8 @@ function useStageScale(STAGE) {
     const el = ref.current; if (!el) return;
     const ro = new ResizeObserver(() => {
       const w = el.clientWidth, h = el.clientHeight;
-      setScale(Math.min(w / STAGE, h / STAGE, 1.05));
+      // never upscale, and keep a margin so node labels never reach the card edge
+      setScale(Math.min(w / STAGE, h / STAGE, 1) * 0.9);
     });
     ro.observe(el);
     return () => ro.disconnect();
@@ -868,9 +869,9 @@ function AgentArena({ intent, solveData, onDone, onBack }) {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 22, alignItems: "stretch" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 22, alignItems: "start" }}>
         {/* graph */}
-        <div className="card" style={{ position: "relative", overflow: "hidden", minHeight: 600, background: "radial-gradient(circle at 50% 45%, rgba(110,84,255,.10), transparent 60%), var(--surface)" }}>
+        <div className="card" style={{ position: "relative", overflow: "hidden", height: 640, background: "radial-gradient(circle at 50% 45%, rgba(110,84,255,.10), transparent 60%), var(--surface)" }}>
           {/* lane legend */}
           <div style={{ position: "absolute", top: 18, left: 18, display: "flex", gap: 10, zIndex: 5, flexWrap: "wrap" }}>
             {Object.values(LANES).map((l) => {
@@ -967,7 +968,7 @@ function AgentArena({ intent, solveData, onDone, onBack }) {
         </div>
 
         {/* feed */}
-        <div className="card" style={{ display: "flex", flexDirection: "column", minHeight: 600 }}>
+        <div className="card" style={{ display: "flex", flexDirection: "column", height: 640 }}>
           <div style={{ padding: "18px 20px", borderBottom: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <span className="h-sm">Negotiation feed</span>
             <span className="num" style={{ fontSize: 11, color: "var(--ink-3)" }}>{active.size}/{eligible.length} quoted</span>
